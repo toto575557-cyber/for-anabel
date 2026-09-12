@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#07070a"
+    >
+
+    <title>For Anabel</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <main>
+
+        <!-- OPENING -->
+
+        <section
+            class="screen active"
+            id="screen1"
+        >
+
+            <div class="glow"></div>
+
+            <p class="eyebrow">
+                I made something...
+            </p>
+
+            <h1>
+                Just for<br>
+                <em>you.</em>
+            </h1>
+
+            <p class="description">
+                Take a moment.<br>
+                Don't rush this.
+            </p>
+
+            <button onclick="nextScreen(2)">
+                Come closer
+            </button>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+
+        <section
+            class="screen"
+            id="screen2"
+        >
+
+            <p class="number">
+                01 / 05
+            </p>
+
+            <div class="story">
+
+                <p class="fade f1">
+                    I could have just sent you a message.
+                </p>
+
+                <p class="fade f2">
+                    Something simple.
+                </p>
+
+                <p class="fade f3">
+                    Something like...
+                </p>
+
+                <h2 class="fade f4">
+                    “I like you.”
+                </h2>
+
+                <p class="fade f5">
+                    But somehow, that didn't feel like enough.
+                </p>
+
+            </div>
+
+            <button
+                class="delayed"
+                onclick="nextScreen(3)"
+            >
+                There's more
+            </button>
+
+        </section>
+
+
+        <!-- ANABEL -->
+
+        <section
+            class="screen"
+            id="screen3"
+        >
+
+            <p class="number">
+                02 / 05
+            </p>
+
+            <p class="eyebrow">
+                So I thought I'd say your name.
+            </p>
+
+            <div class="name">
+                ANABEL
+            </div>
+
+            <div class="line"></div>
+
+            <p class="name-text">
+                Because somehow,<br>
+                you have a way of staying on my mind.
+            </p>
+
+            <button onclick="nextScreen(4)">
+                Keep going
+            </button>
+
+        </section>
+
+
+        <!-- REASONS -->
+
+        <section
+            class="screen"
+            id="screen4"
+        >
+
+            <p class="number">
+                03 / 05
+            </p>
+
+            <p class="eyebrow">
+                Maybe it's these little things.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <small>01</small>
+
+                    <h3>
+                        Your energy.
+                    </h3>
+
+                    <p>
+                        Some people can change
+                        the mood of a conversation
+                        without even trying.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <small>02</small>
+
+                    <h3>
+                        Your smile.
+                    </h3>
+
+                    <p>
+                        The kind of thing that can
+                        make an ordinary moment
+                        memorable.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <small>03</small>
+
+                    <h3>
+                        Just... you.
+                    </h3>
+
+                    <p>
+                        Honestly, I could keep
+                        making reasons.
+                        But I'd rather make memories.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button onclick="nextScreen(5)">
+                One last thing
+            </button>
+
+        </section>
+
+
+        <!-- QUESTION -->
+
+        <section
+            class="screen"
+            id="screen5"
+        >
+
+            <p class="number">
+                04 / 05
+            </p>
+
+            <p class="eyebrow">
+                Okay, Anabel...
+            </p>
+
+            <h2 class="question">
+                Do you know why<br>
+                <em>I made this?</em>
+            </h2>
+
+            <p class="description">
+                Choose carefully.
+            </p>
+
+            <div class="choices">
+
+                <button onclick="nextScreen(6)">
+                    Tell me
+                </button>
+
+                <button
+                    class="quiet"
+                    onclick="alreadyKnow()"
+                >
+                    I already know
+                </button>
+
+            </div>
+
+            <p id="secret"></p>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <section
+            class="screen final"
+            id="screen6"
+        >
+
+            <div id="confetti"></div>
+
+            <p class="eyebrow">
+                For Anabel
+            </p>
+
+            <h2>
+                There's something<br>
+                I want you to know.
+            </h2>
+
+            <p class="final-text">
+                I could have said it in a text.
+                <br><br>
+                But you are worth more than
+                a few words on a screen.
+            </p>
+
+            <p class="final-text">
+                <em>
+                    I like you, Anabel.
+                </em>
+            </p>
+
+            <p class="final-text">
+                And I'd really like to see
+                where this could go.
+            </p>
+
+            <div class="final-buttons">
+
+                <button
+                    class="yes"
+                    onclick="yesAnswer()"
+                >
+                    I'd like that ♡
+                </button>
+
+                <button onclick="blushAnswer()">
+                    You made me smile
+                </button>
+
+            </div>
+
+            <p id="answer"></p>
+
+            <button
+                class="restart"
+                onclick="restart()"
+            >
+                start again
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
