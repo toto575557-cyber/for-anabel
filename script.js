@@ -1,27 +1,33 @@
 const screens = document.querySelectorAll(".screen");
 
 let currentScreen = 1;
+let isTransitioning = false;
 
 
 /* SCREEN TRANSITION */
 
 function nextScreen(number) {
 
-    if (number < 1 || number > screens.length) {
+    if (
+        number < 1 ||
+        number > screens.length ||
+        isTransitioning ||
+        number === currentScreen
+    ) {
         return;
     }
 
-    const current = document.getElementById(
-        "screen" + currentScreen
-    );
+    const current =
+        document.getElementById("screen" + currentScreen);
 
-    const next = document.getElementById(
-        "screen" + number
-    );
+    const next =
+        document.getElementById("screen" + number);
 
-    if (!next) {
+    if (!current || !next) {
         return;
     }
+
+    isTransitioning = true;
 
     current.classList.remove("active");
 
@@ -32,6 +38,10 @@ function nextScreen(number) {
         currentScreen = number;
 
         window.scrollTo(0, 0);
+
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 700);
 
     }, 350);
 }
@@ -45,7 +55,7 @@ function alreadyKnow() {
         document.getElementById("secret");
 
     message.textContent =
-        "Then you already know exactly what I'm trying to say. ♡";
+        "Then maybe you already know why you have been on my mind. ♡";
 
     message.animate(
         [
@@ -75,7 +85,7 @@ function yesAnswer() {
         document.getElementById("answer");
 
     answer.textContent =
-        "Then it's a date. ♡";
+        "Then I think we should make that happen. ♡";
 
     celebrate();
 }
@@ -89,7 +99,7 @@ function blushAnswer() {
         document.getElementById("answer");
 
     answer.textContent =
-        "Okay... now I'm the one blushing. ♡";
+        "Good... because making you smile was the whole point. ♡";
 
     celebrate();
 }
@@ -102,9 +112,13 @@ function celebrate() {
     const box =
         document.getElementById("confetti");
 
+    if (!box) {
+        return;
+    }
+
     box.innerHTML = "";
 
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 45; i++) {
 
         const dot =
             document.createElement("span");
@@ -116,7 +130,7 @@ function celebrate() {
             Math.random() * 1.5 + "s";
 
         dot.style.animationDuration =
-            2 + Math.random() * 2 + "s";
+            2.5 + Math.random() * 2 + "s";
 
         box.appendChild(dot);
     }
@@ -127,19 +141,29 @@ function celebrate() {
 
 function restart() {
 
-    document
-        .getElementById("answer")
-        .textContent = "";
+    const answer =
+        document.getElementById("answer");
 
-    document
-        .getElementById("secret")
-        .textContent = "";
+    const secret =
+        document.getElementById("secret");
 
-    document
-        .getElementById("confetti")
-        .innerHTML = "";
+    const confetti =
+        document.getElementById("confetti");
+
+    if (answer) {
+        answer.textContent = "";
+    }
+
+    if (secret) {
+        secret.textContent = "";
+    }
+
+    if (confetti) {
+        confetti.innerHTML = "";
+    }
 
     currentScreen = 1;
+    isTransitioning = false;
 
     screens.forEach(screen => {
         screen.classList.remove("active");
@@ -147,9 +171,12 @@ function restart() {
 
     setTimeout(() => {
 
-        document
-            .getElementById("screen1")
-            .classList.add("active");
+        const firstScreen =
+            document.getElementById("screen1");
+
+        if (firstScreen) {
+            firstScreen.classList.add("active");
+        }
 
     }, 100);
-}
+    }
