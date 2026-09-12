@@ -242,7 +242,7 @@ button {
         border-color .35s ease,
         background .35s ease,
         box-shadow .35s ease;
-    
+
     -webkit-tap-highlight-color: transparent;
 
     animation:
@@ -329,11 +329,15 @@ button:active {
 }
 
 #screen2.active .f4 {
-    animation: reveal .9s 3.2s forwards;
+    animation: reveal .8s 3.2s forwards;
 }
 
 #screen2.active .f5 {
-    animation: reveal .8s 4.3s forwards;
+    animation: reveal .9s 4.2s forwards;
+}
+
+#screen2.active .f6 {
+    animation: reveal .8s 5.3s forwards;
 }
 
 .delayed {
@@ -343,7 +347,7 @@ button:active {
 
 #screen2.active .delayed {
     animation:
-        reveal .8s 5.2s forwards;
+        reveal .8s 6.3s forwards;
 
     pointer-events: auto;
 }
@@ -811,6 +815,20 @@ button:active {
 
     .tiny-note {
         font-size: 9px;
+    }
+
+    .story {
+        max-width: 340px;
+    }
+
+    .story p {
+        font-size: 15px;
+        margin-bottom: 17px;
+    }
+
+    .story h2 {
+        font-size: 43px;
+        margin: 25px 0;
     }
 
     .cards {
